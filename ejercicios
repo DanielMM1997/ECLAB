@@ -1,1 +1,19 @@
+.global _start 
+_start: 
+          ldw r2, N(r0) 
+          addi r7, r0, 2 
+LOOP: 
+          ble r7, r2, fin 
+          addi r2, r2, -2 
+          movia r3, DATA(r0) 
+          ldw r4, 0 (r3) 
+          addi r3, r3, 4 
+          ldw r5, 0(r3) 
+          addi r3, r3, 4 
+          add r6, r4, r5 
+          stw r6, 0 (r3) 
+          addi r2, r2, -1 
+          bne r2, r0,  LOOP
 
+N:	word 8 
+DATA: .word 0,1,
