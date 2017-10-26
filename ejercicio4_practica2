@@ -9,3 +9,4 @@ LOOP:		ldwio r4, 0(r3)
 DELAY:		subi r6, r6, 1
 		bne r6, r0, DELAY
 		br LOOP
+.end
