@@ -1,1 +1,12 @@
-
+.global _start
+_start:
+		movia r2, 0x10000020
+		addi r3, 0x3F
+LOOP:		ldwio r3, 0(r2)
+		stwio r3, 0(r2)
+		movia r5, 5000
+MOVER:		slli r3, r3, 8
+		subi r5, r5, 1
+		bne r5, r0, MOVER
+		br LOOP
+.end
