@@ -1,0 +1,11 @@
+.global _start
+_start:
+		movia r2, 0x100000000
+		movia r3, 0x100000040
+LOOP:		ldwio r4, 0(r3)
+		addi r5, r0, 0xFFFF
+		stwio r5, 0(r2)
+		movia r6, 10000
+DELAY:		subi r6, r6, 1
+		bne r6, r0, DELAY
+		br LOOP
