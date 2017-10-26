@@ -1,0 +1,17 @@
+.global _start
+_start:
+			movia r2, 0x10000000
+LOOP:		ldw r3, VERDEP 	
+			movia r4, 1000
+DELAY1:		subi r4, r4, 1
+			bne r4, r0, DELAY2
+			stwio r3, 0(r2)
+			movia r4, 1000
+DELAY2:		subi r4, r4, 1
+			bne r4, r0, DELAY2
+			stwio r3, 0(r2)
+			br LOOP
+.org 0x200
+VERDEP:		.word 0x15555
+VERDEI:		.word 0x2AAAA
+.end
