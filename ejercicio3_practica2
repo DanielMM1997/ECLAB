@@ -1,7 +1,7 @@
 .global _start
 _start:
 		movia r2, 0x10000020
-		addi r3, 0x3F
+		addi r3, r0, 0x3F
 LOOP:		ldwio r3, 0(r2)
 		stwio r3, 0(r2)
 		movia r5, 5000
