@@ -2,16 +2,16 @@
 
 .org 0x400
 _start:
-		movia sp,0x08000000
-		movia r2,0x10000050 	#botones IRQ1
-		movia r3,0x10002000 	#timer	 IRQ0
+		movia sp,0x007FFFFC	#iniciarlizar pila
+		movia r2,0x10000050 	#ini botones IRQ1
+		movia r3,0x10002000 	#ini timer IRQ0
 
-		addi  r4,r0,0b00110
-		stw   r4,8(r2)
-		movia r4,50000000
-		stw   r4,8(r3)   		#carga la parte baja
-		srli  r4,r4,16			#carga la parte alta
-		sth   r4,0xC(r3)		#carga la parte alta
+		addi  r4,r0,0b0110 	#habilitar interruciones
+		stw   r4,8(r2)		#cargar r2 en el puerto JTAG
+		movia r4,50000000	#cargar retraso
+		stw   r4,8(r3)   	#carga la parte baja
+		srli  r4,r4,16		#carga la parte alta
+		sth   r4,12(r3)		#carga la parte alta
 		addi  r4,r0,0b0111
 		stw   r4,4(r3)  
 		
