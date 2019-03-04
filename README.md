@@ -1,2 +1,2 @@
 # ECLAB
-Practicas de laboratorio EC
+Practicas de laboratorio de Estructura de los Computadores realizadas en una placa de Altera con procesador Nios2.
